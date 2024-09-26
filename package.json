@@ -1,0 +1,40 @@
+{
+  "name": "mdev-ts-node-template",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "keywords": [],
+  "author": {
+    "name": "Christopher Jaeger",
+    "email": "christopher@mogler.dev"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint . --ext .ts --fix",
+    "format": "prettier --write .",
+    "prepare": "husky",
+    "dev": "tsx --watch ./src/main.ts",
+    "build": "esbuild ./src/main.ts --bundle --platform=node --format=esm --packages=external --outdir=dist",
+    "start": "node dist/main.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.2.0",
+    "@typescript-eslint/parser": "^8.2.0",
+    "@vitest/coverage-v8": "^2.0.5",
+    "esbuild": "^0.23.1",
+    "eslint": "^9.9.1",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
+    "prettier": "^3.3.3",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
